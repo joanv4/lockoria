@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lockoria - Generador</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="floating-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <h1>🔐 Lockoria</h1>
+      <p>Crea tu contraseña personalizada y segura</p>
+    </div>
+    <div class="content">
+      <nav class="nav-buttons">
+        <a class="btn btn-secondary" href="index.html">← Inicio</a>
+        <a class="btn btn-secondary" href="tips.html">Consejos de seguridad</a>
+      </nav>
+
+      <form id="passphraseForm">
+        <div class="form-group">
+          <label for="personalPhrase">Tu frase personal</label>
+          <input type="text" id="personalPhrase" class="form-control" placeholder="Ej: Cuando viajamos a Italia">
+        </div>
+
+        <div class="form-group">
+          <label for="numbers">¿Incluir números?</label>
+          <select id="numbers" class="form-control">
+            <option value="random">Números aleatorios</option>
+            <option value="year">Año significativo</option>
+            <option value="none">Sin números</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="yearInput">Si elegiste año, ¿cuál?</label>
+          <input type="number" id="yearInput" class="form-control" placeholder="2024" min="1900" max="2100">
+        </div>
+
+        <div class="form-group">
+          <label for="symbols">¿Incluir símbolos?</label>
+          <select id="symbols" class="form-control">
+            <option value="yes">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="generatePassphrase()" style="width:100%; margin:1rem 0;">
+          Generar mi contraseña
+        </button>
+      </form>
+
+      <div id="result" class="password-result" style="display: none;">
+        <span id="generatedPassword"></span>
+        <button class="copy-btn" onclick="copyPassword()">📋 Copiar</button>
+      </div>
+
+      <div id="strengthMeter" class="strength-meter" style="display: none;">
+        <div class="strength-bar">
+          <div id="strengthFill" class="strength-fill"></div>
+        </div>
+        <p id="strengthText" style="text-align:center; margin-top:0.5rem; font-weight:600;"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
